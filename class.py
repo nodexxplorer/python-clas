@@ -676,15 +676,15 @@
 # A dictionary maps unique keys to values. Instead of accessing items by position, you look them up by name (key). A dictionary is a data type similar to arrays, but works with keys and values instead of indexes.
 
 
-students = {"Name": "Alice", 
-            "Score": 85,
-            "Age": 25,
-            "School": "Mita School",
-            "Course": "Python"
-            }
+# students = {"Name": "Alice", 
+#             "Score": 85,
+#             "Age": 25,
+#             "School": "Mita School",
+#             "Course": "Python"
+#             }
             
 # del students["Course"]
-students["email"] = "f@mail.com"     
+# students["email"] = "f@mail.com"     
 
 # print(students["Name"])  # Output: Alice
 # print(students["Age"])
@@ -706,18 +706,18 @@ students["email"] = "f@mail.com"
 # Nested Dictionaries
 
 # Each student stores their own dict
-classroom = {
-    "Fortune": { "score": 92, "grade": "A", "school": "Mita School" },
-    "Ada":     { "score": 85, "grade": "B", "school": "Mita School" },
-    "Linus":   { "score": 60, "grade": "D", "school": "Mita School" },
-}
+# classroom = {
+#     "Fortune": { "score": 92, "grade": "A", "school": "Mita School" },
+#     "Ada":     { "score": 85, "grade": "B", "school": "Mita School" },
+#     "Linus":   { "score": 60, "grade": "D", "school": "Mita School" },
+# }
 
-work = {
-    "hope": { "score": 75, "grade": "C", "school": "Mita School" },
+# work = {
+#     "hope": { "score": 75, "grade": "C", "school": "Mita School" },
 
 
-}
+# }
  
-for name, data in work.items():
-    print(f"{name:12} {data['score']}/100  Grade: {data['grade']}")
+# for name, data in work.items():
+#     print(f"{name:12} {data['score']}/100  Grade: {data['grade']}")
 
