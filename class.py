@@ -1,3 +1,17 @@
+# def my_function():
+#     print("Hello from David!")
+    
+# # my_function()
+
+# # def my_func(how_are_you):
+# #     print("Hello From My Function!")
+# #     print(f"I'm {how_are_you}")
+
+# # my_func("fine, thanks!")
+#  def my_func():
+#     print("thank you for subscribing to python")
+
+
 # a = 30.4
 # print(a)
 # print(type(a))
@@ -377,3 +391,333 @@
 #   [10, 20, 30],  // Row 0
 #   [40, 50, 60]   // Row 1
 # ]
+
+
+# Break and continue
+# break is used to exit a for loop or a while loop, whereas continue is used to skip the current block, and return to the "for" or "while" statement.
+
+# Pass is used to tell the complier to do nothing
+
+# count = 0
+# while True:
+#     print(count)
+#     count += 1
+#     if count >= 5:
+#         break
+
+# for char in "Python":
+#     if char == "n":
+#         break # Loop terminates when 'n' is reached
+#     print(char)
+
+# for x in range(10):
+#     # Check if x is even
+#     if x % 2 == 0:
+#         continue
+#     print(x)
+
+# count = 0
+# while True:
+#     print(count)
+#     count += 1
+#     if count >= 5:
+#         break
+#     my_function()
+#     # my_func()
+
+# for char in "Python":
+#     if char == "n":
+#         pass # Loop terminates when 'n' is passed
+#     print(char)
+
+
+# Functions
+
+# Functions are a convenient way to divide your code into useful blocks, allowing us to order our code, make it more readable, reuse it and save some time. A function is a named, reusable block of code that performs a specific task. 
+
+# Define the function with "def" keyword
+# def greet():
+#     print("Hello!")
+#     print("Welcome to Python.")
+
+# # Call the function
+# greet()
+
+# def my_function():
+    # print("Hello from David!")
+    
+# my_function()
+
+# def my_func(how_are_you):
+#     print("Hello From My Function!")
+#     print(f"I'm {how_are_you}")
+
+# my_func("fine, thanks!")
+
+# my_func("fine, thanks!")
+# def my_func():
+    # print("thank you for subscribing to python")
+
+# input("this is my function class in python class, Im using python 3.13.5 Press Enter to continue...")
+# my_function()
+# my_func()
+
+# when defining the function what you put in the bracket is the parameter, but when calling the function what you put in the bracket is an argument. you can have multiple parameters 
+
+
+# def introduce(name, age, city):
+#     print(f"I am {name}, {age} years old, I am from {city}.")
+ 
+# introduce("Fortune", 20, "Lagos")
+# introduce("Ada", 36, "London")
+# introduce(input("my name is? "), input("my age is? "), input("i am from? "))
+
+
+# def add(a, b):
+#     return a + b          # sends result back
+ 
+# result = add(10, 5)
+# print(result)             # 15
+# print(add(3, 4) * 2)      # 14 — use return value directly
+# print(result * add(3, 4) * 2) 
+
+
+# def absolute_value(n):
+#     if n >= 0:
+#         return n          # exits here for positive numbers
+#     return -n             # only reached for negative numbers
+ 
+# print(absolute_value(7))   # 7
+# print(absolute_value(3))  # 3
+
+
+# Local and Global Variables
+# A variable created inside a function is local only when it exists within that function and disappears when the function ends. A variable outside all functions is global because it is accessible everywhere.
+
+# x = 10
+
+# def david():
+#     y = 50
+#     print(x)
+#     print(y)
+# david()
+
+# print(x)
+
+
+# for i in range(1, 31):
+#     if i % 15 == 0:    print("FizzBuzz")
+#     elif i % 3 == 0:   print("Fizz")
+#     elif i % 5 == 0:   print("Buzz")
+#     else:              print("🤣")
+
+
+# for row in range(1, 6):
+    # print("^" * row)
+
+
+# def calculator():
+#     print("simple calculator")
+    
+#     def km_to_miles(km):    return km * 0.621371
+#     def kg_to_lbs(kg):      return kg * 2.20462
+#     def celsius_to_f(c):    return (c * 9/5) + 32
+#     def add(a, b):  return a + b
+#     def substrate(a, b):  return a - b
+#     def multiple(a, b): return a * b
+#     def divide(a, b): return a / b if b != 0 else "Error: Division by zero"
+#     def floordivide(a, b): return a // b
+#     def module(a, b): return a % b
+#     def complex(a, b, c): return (a + b) * c
+    
+#     while True:
+#         print("\n 1) km->miles  2) kg->lbs  3) C->F 4) Addition  5) Subtraction  6) Multiplication  7) Division  8) Floor Division  9) Module  10) Complex  0) Quit")
+#         choice = input("Choice: ")
+        
+# # """ 1)\
+
+#         if choice == "0": 
+#             break
+#         elif choice == "1":
+#             value  = float(input("Value: "))
+#             km_to_miles(value)
+#             print(km_to_miles(value))
+#         elif choice == "2":
+#             value  = float(input("Value: "))
+#             kg_to_lbs(value)     
+#             print(kg_to_lbs(value))
+#         elif choice == "3":
+#             value  = float(input("Value: "))
+#             celsius_to_f(value)
+#             print(celsius_to_f(value))
+#         elif choice == "4":
+#             a = float(input("First value: "))
+#             b = float(input("Second value: "))
+#             print(add(a, b))
+#         elif choice == "5":
+#             a = float(input("First value: "))
+#             b = float(input("Second value: "))
+#             print(substrate(a, b))
+#         elif choice == "6":
+#             a = float(input("First value: "))
+#             b = float(input("Second value: "))
+#             print(multiple(a, b))
+#         elif choice == "7":
+#             a = float(input("First value: "))
+#             b = float(input("Second value: "))
+#             print(divide(a, b))
+#         elif choice == "8":
+#             a = float(input("First value: "))
+#             b = float(input("Second value: "))
+#             print(floordivide(a, b))
+#         elif choice == "9":
+#             a = float(input("First value: "))
+#             b = float(input("Second value: "))
+#             print(module(a, b))
+#         elif choice == "10":
+#             a = float(input("First value: "))
+#             b = float(input("Second value: "))
+#             c = float(input("Third value: "))
+#             print(complex(a, b, c))
+
+#         else:
+#             print("Invalid choice")
+# calculator()
+
+
+        
+#Data Structures
+# Data structures organise multiple pieces of data in a single variable. Python has four essential built-in structures: list, dict, tuple, and set. Choosing the right one for the right job is a key skill. examples are:
+# dict{}, list[], tuple(), set{}
+
+# A list stores multiple items in order, allows duplicates, and can be modified. It is the most frequently used data structure in Python. 
+
+# fruits  = ["apple", "banana", "cherry"]
+# numbers = [10, 20, 30, 40, 50]
+# mixed   = ["hello", 42, True, 3.14, None]  # different types allowed
+# empty   = []
+# print(mixed)
+
+
+# Indexing allows you to retrieve a single element from a sequence using its position
+# Zero-Based: Python starts counting at 0. The first item is at index 0, the second at 1, etc. 
+# Negative Indexing: You can count from the end of a sequence using negative numbers. -1 refers to the last item, -2 to the second-to-last, and so on.
+# Syntax: Use square brackets with the index number: sequence[index].
+
+# colours = ["red", "green", "blue", "yellow", "purple"]
+#            0       1       2        3          4
+#           -5      -4      -3       -2         -1
+
+# Single item access
+# print(colours[-5])    
+# print(colours[-3])    
+# print(colours[1])     
+
+# Slicing extracts a range of elements (a "slice") from a sequence, creating a new sequence of the same type.
+# Syntax: sequence[start:stop:step].
+# start: The index where the slice begins (inclusive). Defaults to 0.
+# stop: The index where the slice ends (exclusive). Defaults to the length of the sequence.
+# step (optional): The increment between each index. Defaults to 1.
+
+# colours = ["red", "green", "blue", "yellow", "purple"]
+#            0       1       2        3          4
+#           -5      -4      -3       -2         -1
+
+# slicing: list[start:stop:step]
+# print(colours[1:4])   # Output: ['green', 'blue', 'yellow']
+# print(colours[:3])    # Output: ['red', 'green', 'blue']
+# print(colours[2:5])   # Output: ['blue', 'yellow', 'purple']
+# print(colours[::2])   # Output: ['red', 'blue', 'purple']
+
+
+
+# common list Method
+# append(x) - this add one item to the end of the list. Example (L.append("mango"))
+# insert(index, x) - this adds an item at a specific index. Example (L.insert(2, "mango"))
+# extend(iterable) - this adds multiple items to the end of the list. Example (L.extend(["mango", "orange"]))
+# remove(x) - this removes the first occurrence of an item from the list. Example (L.remove("mango"))
+# pop([index]) - this removes and returns an item at a specific index. Example (L.pop(2))
+# clear() - this removes all items from the list. Example (L.clear())
+# index(x) - this returns the index of the first occurrence of an item. Example (L.index("mango"))
+# count(x) - this returns the number of occurrences of an item. Example (L.count("mango"))
+# sort() - this sorts the list in ascending order. Example (L.sort())
+# reverse() - this reverses the order of the list. Example (L.reverse())
+# sum() - this returns the sum of all items in the list. Example (L.sum())
+
+
+# colours.append("mango")
+# colours.insert(2, "mango")
+# colours.extend(["lilac","peach", "gold"])
+# colours.remove("red")
+# colours.pop(2)
+# colours.clear()
+# colours.count("yellow")
+# colours.sort()
+
+
+
+# colours.pop(2)
+# print(pop)
+# print(colours) 
+
+# students = ["Alice", "Bob", "Charlie"]
+ 
+# students.append("Diana")              # ["Alice","Bob","Charlie","Diana"]
+# students.insert(0, "Zara")            # ["Zara","Alice","Bob","Charlie","Diana"]
+# students.remove("Bob")                # ["Zara","Alice","Charlie","Diana"]
+# removed = students.pop()              # removes "Diana"
+ 
+# students.sort()                       # ["Alice","Charlie","Zara"]
+# print(len(students))                  # 3
+# print("Alice" in students)            # True
+# print(students.index("Charlie"))      # 1
+
+# Dictionaries
+# A dictionary maps unique keys to values. Instead of accessing items by position, you look them up by name (key). A dictionary is a data type similar to arrays, but works with keys and values instead of indexes.
+
+
+students = {"Name": "Alice", 
+            "Score": 85,
+            "Age": 25,
+            "School": "Mita School",
+            "Course": "Python"
+            }
+            
+# del students["Course"]
+students["email"] = "f@mail.com"     
+
+# print(students["Name"])  # Output: Alice
+# print(students["Age"])
+# print(students["School"])
+# print(students["email"])
+# print(students["Score"])
+
+# for keys in students:
+    # print(keys)
+
+# for val in students.values():
+#     print(val)
+
+# for key, val in students.items():
+    # print(f"{key}: {val}")
+
+# print(students.get("Bob"))  # Output: 90
+
+# Nested Dictionaries
+
+# Each student stores their own dict
+classroom = {
+    "Fortune": { "score": 92, "grade": "A", "school": "Mita School" },
+    "Ada":     { "score": 85, "grade": "B", "school": "Mita School" },
+    "Linus":   { "score": 60, "grade": "D", "school": "Mita School" },
+}
+
+work = {
+    "hope": { "score": 75, "grade": "C", "school": "Mita School" },
+
+
+}
+ 
+for name, data in work.items():
+    print(f"{name:12} {data['score']}/100  Grade: {data['grade']}")
+
