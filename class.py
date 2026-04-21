@@ -721,3 +721,163 @@
 # for name, data in work.items():
 #     print(f"{name:12} {data['score']}/100  Grade: {data['grade']}")
 
+
+
+
+# Tuples is like a list but it cannot be changed after creation. We use tuple for data that should remain constant. example: coordinates = (10, 20), rgb = (255, 0, 0), function parameters((10, 20)), and named record.
+
+# point = (30, 40, 20, 60)
+# rgb_red = ("red", "green", "blue")
+# months     = ("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")
+
+# print(point[0])
+# print(months[6])
+# print(rgb_red[1])
+
+# north, south, east, west = point
+# r, g, b  = rgb_red
+# print(f"point: {north}, {south}, {east}, {west} \nRed, green, blue channels: {r} {g} {b} ")
+
+
+# A set stores only unique values in no guaranteed order. Use them to remove duplicates.
+# tags = {"python", "code", "python", "tutorial", "code"}
+# print(tags)      # {"python", "code", "tutorial"} — order may vary
+
+# set operations
+# tags.add("programming")
+# tags.remove("code")
+# print(tags)    
+
+# a = {1,2,3,4,5,6}
+# b = {4,5,6,7,8,9}
+#  (&) - Intersection Returns only the elements that exist in both sets. It is useful for finding common items between datasets.
+#  (|) - union Combines all unique elements from both sets. Any duplicates between the sets are automatically removed
+#  (-) - difference Returns a set containing elements that exist only in the first set and not in the second.
+#  (^) - symmetric difference Returns a set containing elements that are in either of the sets, but not in both 
+
+# print(a & b)
+# print(a | b)
+# print(a - b)
+# print(b - a)
+# print(a ^ b)
+
+# Build a contact book using a dictionary. Support: add contact, search by name, delete, list all. Loop until user quits.
+
+contacts = {}
+
+# while True:
+#     print("\n 1) Add Contact 2) Search Contact  3) Delete Contact 4) List All Contacts 0) Quit")
+#     choice = input("Enter your choice: ")
+#     if choice == "1":
+#         name = input("Enter contact name: ")
+#         phone = input("Enter contact phone: ")
+#         contacts[name] = phone
+#         print(f"Contact added: {name} - {phone}")
+#     elif choice == "2":
+#         name = input("Enter contact name to search:")
+#         if name in contacts:
+#             print(f"Contact found: {name} - {contacts[name]}")
+#         else:
+#             print("Contact not found.")
+#     elif choice == "3":
+#         name = input("Enter contact name to delete:")
+#         if name in contacts:
+#             del contacts[name]
+#             print(f"Contact deleted: {name}")
+#         else:
+#             print("Contact not found.")
+#     elif choice == "4":
+#         if contacts:
+#             print("All Contacts:")
+#             for name, phone in contacts.items():
+#                 print(f"  {name}: {phone}")
+#         else:
+#             print("No contacts available.")
+#     elif choice == "0":
+#         print("Quitting...")
+#         print("Exited")
+#         break
+#     else:
+#         print("Invalid choice. Please try again.")
+
+
+# Assignment
+# Build a program using a dictionary (student name -> list of scores) that supports: add student, add a score, display all students with their average, display the top scorer.
+
+
+# Finding and Fixing Errors
+# Type 1 — SyntaxError (Code Will Not Even Start): Python cannot parse your code. Usually a missing colon, bracket, or quote. The error message shows exactly which line.
+# name = input("Enter your name: ")
+
+# if name in contacts:
+#     print("today class:)")
+  
+# else:
+#     print("go home")
+
+
+# Type 2 — RuntimeError / Exception (Crashes During Execution)
+# Syntax is correct but something goes wrong while running. Python raises an exception with a descriptive error message.
+
+# we have:
+
+# name error is raised when you try to use a variable that hasn't been defined
+# type error is raised when you try to use an operator or function with the wrong type of data
+# index error is raised when you try to access an index that doesn't exist in a sequence
+# key error is raised when you try to access a key that doesn't exist in a dictionary
+# file not found error is raised when you try to open a file that doesn't exist
+
+# print("5" + "3")
+# print(float("douglas"))
+# students = {"Name": "Alice", 
+#             "Score": 85,
+#             "Age": 25,
+#             "School": "Mita School",
+#             "Course": "Python",
+#             # "douglas": "5years"
+#             }
+            
+# del students["douglas"]
+# students["email"] = "f@mail.com"  
+# open("index.html")
+
+# Type 3 — Logic Error (Wrong Answer, No Crash)
+# The hardest type. Code runs without error but gives wrong results. You must trace through your logic to find where the reasoning went wrong.
+
+# scores = int(input("enter number "))
+def class_average(scores):
+    return sum(scores) / len(scores)    # wrong: hardcoded 10
+
+
+# Debugging Techniques
+# 4.	Read the error message — Python gives file name, line number, and error type. Never ignore it.
+# 5.	Print debugging — add temporary print() statements to check variabble values at key points:
+# def process(data):
+    # print(f"DEBUG input: {data}")    # check what came in
+# 6.	Use the VS Code debugger: set a breakpoint (click left of line number), press F5, step line by line, inspect variables in real time.
+# 7.	Rubber duck debugging: explain your code line by line out loud (to a rubber duck or a friend). Often the bug becomes obvious when you verbalise it.
+# 8.	Simplify: isolate the broken piece in a small test script. Remove everything else until you have the minimum code that shows the bug.
+
+# Note: use ai for advanced debugging
+
+# clean code eand pep 8 style
+# PEP 8 is the official Python style guide. Following it makes your code readable by any Python developer in the world.
+
+# ── Naming Conventions ──
+# student_name  = "Fortune"       # variables:  snake_case
+# MAX_ATTEMPTS  = 5               # constants:  UPPER_SNAKE_CASE
+ 
+# def calculate_average(scores):  # functions:  snake_case
+    # pass
+ 
+# class StudentRecord:            # classes:    PascalCase  (Week 6)
+    # pass
+ 
+# ── Spacing ──
+# x = 5 + 3                       # spaces around operators
+# result = calculate_average(scores)
+ 
+# def greet(name, greeting="Hi"): # no spaces around = in default args
+    # pass
+
+print(5 + 3) # adding 5 to 3
