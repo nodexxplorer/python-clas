@@ -845,8 +845,8 @@ contacts = {}
 # The hardest type. Code runs without error but gives wrong results. You must trace through your logic to find where the reasoning went wrong.
 
 # scores = int(input("enter number "))
-def class_average(scores):
-    return sum(scores) / len(scores)    # wrong: hardcoded 10
+# def class_average(scores):
+    # return sum(scores) / len(scores)    # wrong: hardcoded 10
 
 
 # Debugging Techniques
@@ -880,4 +880,73 @@ def class_average(scores):
 # def greet(name, greeting="Hi"): # no spaces around = in default args
     # pass
 
-print(5 + 3) # adding 5 to 3
+# print(5 + 3) # adding 5 to 3
+# Open 'data.txt' in read ('r') mode
+
+
+#  Files, JSON & Error Handling
+
+# file handling
+
+# f =  open("index.html", "r")
+# content = f.read()
+# f.close()
+
+# "r(read)" - open files to read only
+# "w(write)" - open files to write (overwrites existing content)
+# "a(append)" - open files to append (adds to existing content)
+# "r+" - open files to read and write
+# "x" - open files for exclusive creation
+
+# with open('data.txt', 'r') as file:
+    # content = file.read()
+    # print(content)
+
+# try:
+#     with open('data.txt', 'w') as file:
+#         file.write("Hello, World!")
+#         file.write("\nThis is a new line.")
+#         file.write("\nIn mita school, we have favour and compassion.")
+# except FileNotFoundError:
+#     print("the file was not found")
+
+# with open('data.txt', 'r') as file:
+#     content = file.read()
+#     print(content)
+
+# with open('data.txt', 'r') as file:
+#     content = file.read()
+#     print(content)
+
+# with open('data.txt', 'w') as file:
+#     file.write("lets see how it goes and what works")
+
+# try:
+#     with open("name.txt", "x") as file:
+#         file.write("This file is brand new!")
+# except FileExistsError:
+#     print("Error: That file already exists. Choose a different name.")
+
+# try:
+#     with open("name.txt","rt") as file:
+#         content = file.read()
+#         print(content)
+# except FileNotFoundError:
+#     print("Error: The file was not found.")
+
+try:
+    with open("country.txt", "x") as file:
+        file.write ("Uyo is the capital of Akwa Ibom State")
+except FileExistsError:
+    print("Error: That file already exists. Choose a different name.")
+
+with open("country.txt", "w") as file:
+     file.write("You will love staying in Uyo")
+# print("Error: The file was not found.")
+
+with open("country.txt", "a") as file:
+    file.write("I love Uyo")
+
+    with open("country.txt", "r") as file:
+        content = file.read()
+        print(content) 
