@@ -934,19 +934,169 @@ contacts = {}
 # except FileNotFoundError:
 #     print("Error: The file was not found.")
 
-try:
-    with open("country.txt", "x") as file:
-        file.write ("Uyo is the capital of Akwa Ibom State")
-except FileExistsError:
-    print("Error: That file already exists. Choose a different name.")
+# try:
+#     with open("country.txt", "x") as file:
+#         file.write ("Uyo is the capital of Akwa Ibom State")
+# except FileExistsError:
+#     print("Error: That file already exists. Choose a different name.")
 
-with open("country.txt", "w") as file:
-     file.write("You will love staying in Uyo")
-# print("Error: The file was not found.")
+# with open("country.txt", "w") as file:
+#      file.write("You will love staying in Uyo")
+# # print("Error: The file was not found.")
 
-with open("country.txt", "a") as file:
-    file.write("I love Uyo")
+# with open("country.txt", "a") as file:
+#     file.write("I love Uyo")
 
-    with open("country.txt", "r") as file:
-        content = file.read()
-        print(content) 
+#     with open("country.txt", "r") as file:
+#         content = file.read()
+#         print(content) 
+
+# import datetime
+ 
+# def log_event(message):
+#     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+#     with open("events.log", "a") as file:
+#         file.write(f"[{timestamp}] {message}\n")
+ 
+# log_event("User logged in")
+# log_event("User viewed dashboard")
+# log_event("User logged out")
+
+
+# JSON (JavaScript Object Notation) is a lightweight format for storing and transporting data, frequently used for APIs and configuration files. In Python, you interact with this format using the built-in json module
+
+# python types -> JSON equivalents  -->> examples
+# dict -> object  -->> {"name": "Alice", "age": 30}
+# list, tuple -> array  -->> [1, 2, 3]
+# str -> string  -->> "Hello, World!"
+# int, float -> number  -->> 42, 3.14
+# bool -> boolean  -->> true, false
+# None -> null  -->> null
+
+# 1. dump() – Saving DataThe dump() function is used to write a Python object directly into a file-like object.
+
+# Purpose: To persist data to a physical file on disk.
+
+
+# Purpose: To restore saved data into the program's memory.
+
+# import json
+
+# students = {"Alice": 30, 
+#             "Bob": 25, 
+#             "Charlie": 35, 
+#             "scores": [85, 90, 78]
+#             }       # from python object JSON string
+
+# json_text = json.dumps(students)
+# # print(json_text)
+# print(json.dumps(students, indent=2))
+
+# indent tells Python to add line breaks and spaces of indentation to each level of the JSON data.
+
+
+# 2. load() – Retrieving Data The load() function is the reverse of dump(). it reads data from a file-like object and converts it back into a native Python object.
+
+# json_string = '{"city": "New York", "country": "USA"}'       #JSON string → Python object 
+# data = json.loads(json_string)
+# print(data)
+
+#  3. json.dump() — Write Python object to JSON file 
+# contacts = [
+#     {
+#     "name": "Alice", "phone": "080132452674"
+#    },
+#    {
+#     "name": "bao", "phone": "080123456789"
+#    },
+# ]
+# with open("contacts.json", "w") as file:
+#     json.dump(contacts, file, indent=4)
+
+
+# contat = [
+#     {
+#         "name": "David", "phone": "09150921509"
+#     },
+#     {
+#         "name": "Overcommer", "phone": "07059305834"
+#     },
+#     {
+#         "name": "Hope", "phone": "08012345655"
+#     },
+#     {
+#         "name": "Fortune", "phone": "070012345678"
+#     },
+# ]
+# with open("contacts.json", "a") as file:
+#     file.write('{"name": "Nqama", "phone": "080123456789"}, \n{"name": "david", "phone": "080987654321"}')
+
+#     json.dump(contacts, file, indent=2)
+
+
+
+# #  4. json.load() — Read JSON file → Python object 
+# with open("contacts.json", "r") as file:
+#     data = json.load(file)
+#     print(data) 
+
+# def car(model, model1):
+#     print(f"This is a {model} and {model1}")
+# car("Toyota", "nissan") 
+
+
+# import os
+# import json
+
+# FILE = "todo.json"
+
+# def load_todos():
+#     if os.path.exists(FILE):
+#         with open(FILE, "r") as file:
+#             return json.load(file)
+#     return []
+
+# def save_todos(todos):
+#     with open(FILE, "w") as file:
+#         json.dump(todos, file, indent=2)
+
+
+# def add_todo(task):
+#     todos = load_todos()
+#     todos.append({"task": task, "completed": False})
+#     save_todos(todos)
+#     print(f"Task added: {task}")
+
+
+# def complete_todo(index):
+#     todos = load_todos()
+#     if 0 <= index < len(todos):
+#         todos[index]["completed"] = True
+#         save_todos(todos)
+#         print(f"Task marked as complete: {todos[index]['task']}")
+#     else:
+#         print("Invalid task index.")
+
+
+# def show_todos():
+#     todos = load_todos()
+#     for i, todo in enumerate(todos):
+#         status = "✓" if todo["completed"] else "✗"
+#         print(f"{i + 1}. [{status}] {todo['task']}")
+
+
+
+# add_todo("Buy groceries")
+# add_todo("go shopping")
+# add_todo("Walk the dog")
+# add_todo("Learn everything about python")
+# complete_todo(0)
+# complete_todo(3)
+# show_todos()
+
+
+
+# assignment
+# 1. Write a program that asks for an expense name and amount, validates the amount (must be a positive number), saves each expense to a JSON file, and loads the file at startup. Handle all possible errors gracefully.
+
+# 2.  Build a full expense tracker. It must: load existing expenses from a JSON file on startup, let the user add expenses (name, amount, category), save to JSON after every addition, show total by category, and handle all invalid input with try/except.
