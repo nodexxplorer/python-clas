@@ -1,7 +1,16 @@
-# def my_function():
-#     print("Hello from David!")
+# def my_function():    
+#     try:
+#         print("Hello from David!")
+#         return my_function()
+#     except Exception as e:
+#         print(f"An error occurred: {e}")
+#         return  None
+
+    # except TypeError:
+    #     print("A TypeError occurred.")
+    #     return None
+
     
-# # my_function()
 
 # # def my_func(how_are_you):
 # #     print("Hello From My Function!")
@@ -1096,7 +1105,243 @@ contacts = {}
 
 
 
+
+# error handling - try / except / finally
+# age = int(input("Enter your age: "))
+
+# try:
+#     age = int(input("Enter your age: "))
+# except ValueError:
+#     print("Invalid input. Please enter a valid age.")
+
+# def divide(a, b):
+    
+#     try:
+#         result = a / b
+#         return result
+#     except ZeroDivisionError:
+#         print("Error: Division by zero is not allowed.")
+#         return None
+#     except TypeError:
+#         print("Error: Invalid input types. Please enter numbers.")
+#         return None
+
+# print(divide(10, 2))
+# print(divide(10, 0))
+# print(divide(10, "a"))
+
+
+
+# "else" runs only when the try block succeeded (no exception raised)
+# try:
+#     number = int(input("enter a number: "))
+#     print(f"You entered: {number}")
+# except ValueError:
+#     print("Invalid input. Please enter a valid number.")
+# else:
+#     print("No errors occurred.")
+
+
+
+# def set_age(age):
+#     if not isinstance(age, int):
+#         raise TypeError(f"Age must be an integer, got {type(age).__name__}")
+#     if age < 0 or age > 120:
+#         raise ValueError(f"Age must be between 0 and 120, got {age}")
+#         # print(f"Age set to {age}.")
+ 
+# try:
+#     set_age(25)       # OK
+#     # set_age(-5)       # raises ValueError
+# except ValueError as e:
+#     print(f"Invalid age: {e}")
+# else:
+#     print("ok")
+
+
+
+# try:
+#     # Put code that MIGHT cause an error here
+#     risky_operation()
+ 
+# except SpecificError:
+#     # Runs ONLY if SpecificError occurred
+#     handle_it()
+ 
+# except AnotherError as e:
+#     # "as e" gives you the error message
+#     print(f"Something else went wrong: {e}")
+ 
+# except Exception as e:
+#     # Catches ANY exception — use as last resort
+#     print(f"Unexpected error: {e}")
+ 
+# else:
+#     # Runs ONLY if NO exception occurred
+#     success_action()
+ 
+# finally:
+#     # ALWAYS runs — error or no error
+#     cleanup()
+
+
+
 # assignment
 # 1. Write a program that asks for an expense name and amount, validates the amount (must be a positive number), saves each expense to a JSON file, and loads the file at startup. Handle all possible errors gracefully.
 
 # 2.  Build a full expense tracker. It must: load existing expenses from a JSON file on startup, let the user add expenses (name, amount, category), save to JSON after every addition, show total by category, and handle all invalid input with try/except.
+
+
+# import json, os
+ 
+# FILE = "expenses.json"
+ 
+# def load():
+#     if not os.path.exists(FILE): return []
+#     with open(FILE) as f: return json.load(f)
+ 
+# def save(data):
+#     with open(FILE, "w") as f: json.dump(data, f, indent=2)
+ 
+# expenses = load()
+ 
+# while True:
+#     name = input("Expense name (or q to quit): ")
+#     if name.lower() == "q": break
+#     try:
+#         amount = float(input("Amount: "))
+#         if amount <= 0: raise ValueError("Must be positive")
+#         expenses.append({"name": name, "amount": amount})
+#         save(expenses)
+#         print(f"  Saved: {name} — NGN {amount:.2f}")
+#     except ValueError as e:
+#         print(f"  Invalid amount: {e}")
+
+
+
+
+
+
+# Modules and Object Oriented Programming(OOP)
+# Python ModulesA module is simply a file containing Python definitions and statements, ending in .py. They help break down complex systems into manageable, independent parts.
+
+# How to create: Save any Python code in a file, such as tools.py.
+# How to use: Use the import statement to access the module's contents in another file.
+
+# import math
+# print(math.sqrt(16))
+# print(math.pi)
+# print(math.floor(3.89 / 3))
+
+
+# import math as m
+# print(m.sqrt(25))
+
+# from math import sqrt, floor, pi
+# print(sqrt(25))
+# print(floor(3.89 / 3))
+# print(pi)
+
+# from math import *
+# print(ceil(2.1))
+
+# import math
+ 
+# print(math.sqrt(64))       # 8.0   — square root
+# print(math.pow(2, 10))     # 1024  — power (returns float)
+# print(math.floor(3.7))     # 3     — round DOWN always
+# print(math.ceil(3.1))      # 4     — round UP always
+# print(math.pi)             # 3.14159... — pi constant
+# print(math.e)              # 2.71828... — Euler's number
+# print(math.factorial(5))   # 120   — 5! = 5*4*3*2*1
+# print(math.log(100, 10))   # 2.0   — log base 10 of 100
+
+
+# import random
+ 
+# print(random.randint(1, 6))        # random int between 1 and 6 (dice roll)
+# print(random.random())             # random float between 0.0 and 1.0
+# print(random.uniform(1.5, 3.5))    # random float between 1.5 and 3.5
+ 
+# fruits = ["apple", "banana", "mango", "orange"]
+# print(random.choice(fruits))       # pick one random item
+# print(random.sample(fruits, 2))    # pick 2 unique random items
+ 
+# random.shuffle(fruits)             # shuffle the list in place
+# print(fruits)
+ 
+# # Reproducible randomness — useful for testing
+# random.seed(42)                    # always gives the same "random" numbers
+# print(random.randint(1, 100))      # always 63 with seed 42
+
+
+# import os
+ 
+# print(os.getcwd())                  # print current working directory
+# print(os.listdir("."))             # list all files in current folder
+# print(os.path.exists("data.json")) # True if file exists
+# print(os.path.isfile("notes.txt")) # True if it is a file (not folder)
+ 
+# os.makedirs("my_folder", exist_ok=True)  # create folder (no error if exists)
+ 
+# # Build file paths safely (works on Windows AND Mac/Linux)
+# path = os.path.join("data", "users", "profile.json")
+# print(path)   # data/users/profile.json  (or data\\users\\profile.json)
+ 
+# # Get file info
+# size = os.path.getsize("events.log")   # file size in bytes
+# sizes = os.path.getsize("class.py") 
+# print(f"File size: {size} and {sizes} bytes")
+
+
+
+
+# from datetime import datetime, date, timedelta
+ 
+# Current date and time
+# now  = datetime.now()
+# # print(now)                          
+# print(now.strftime("%d/%m/%Y"))    
+# print(now.strftime("%A, %B %d"))  
+ 
+# Just the date
+# today = date.today()
+# print(today)                       
+ 
+# # Arithmetic with dates
+# tomorrow   = today + timedelta(days=1)
+# next_week  = today + timedelta(weeks=1)
+# last_month = today - timedelta(days=30)
+ 
+# # Calculate how many days until an event
+# graduation = date(2024, 12, 15)
+# days_left  = (graduation - today).days
+# print(f"Graduation in {days_left} days")
+ 
+# Useful strftime format codes
+# %Y = 4-digit year   %m = 2-digit month   %d = 2-digit day
+# %H = 24h hour       %M = minute          %S = second
+# %A = full weekday   %B = full month name
+
+import calculator
+ 
+print(calculator.add(10, 5))        # 15
+# print(calculator.multiply(3, 7))    # 21
+# print(calculator.PI)                # 3.14159
+# print(calculator.floor_divide(20, 10))
+
+ 
+# # Or import specific things:
+# from calculator import divide, PI, floor_divide
+# print(divide(20, 4))   # 5.0
+# print(floor_divide(30, 12))
+# print(PI)
+
+
+# The if __name__ == "__main__": Guard
+
+# When Python runs a file directly, it sets __name__ to "__main__". When a file is imported as a module, __name__ is set to the module's filename. This guard lets you have code that only runs when you execute the file directly — not when it is imported.
+# 
+
+# assignment
+# create 2 files in the same directory and add the __name__ == "__main__" guard to it so it doesnt display the part below the guard
