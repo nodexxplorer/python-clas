@@ -1323,9 +1323,9 @@ contacts = {}
 # %H = 24h hour       %M = minute          %S = second
 # %A = full weekday   %B = full month name
 
-import calculator
+# import calculator
  
-print(calculator.add(10, 5))        # 15
+# print(calculator.add(10, 5))        # 15
 # print(calculator.multiply(3, 7))    # 21
 # print(calculator.PI)                # 3.14159
 # print(calculator.floor_divide(20, 10))
@@ -1345,3 +1345,168 @@ print(calculator.add(10, 5))        # 15
 
 # assignment
 # create 2 files in the same directory and add the __name__ == "__main__" guard to it so it doesnt display the part below the guard
+
+
+
+
+# OOP stands for Object-Oriented Programming.
+# Python is an object-oriented language, allowing you to structure your code using classes and objects for better organization and reusability.
+
+# Advantages of OOP
+# Provides a clear structure to programs
+# Makes code easier to maintain, reuse, and debug
+# Helps keep your code DRY (Don't Repeat Yourself)
+# Allows you to build reusable applications with less code
+
+# # A class defines what an object should look like, and an object is created based on that class. For example: 
+# class MyClass:
+#     x = 5
+#     y = "david is a developer"
+# p1 = MyClass()
+# p2 = MyClass()
+# p3 = MyClass()
+# p4 = MyClass()
+# print(p1.x, p2.y)  # Output: 5 david is a developer
+# print(p1.y)  # Output: david is a developer
+# print(p2.x, p4.x, p3.y)  # Output: 5 david is a developer
+# print(p4.x, p4.y)  # Output: 5 david is a developer
+
+# __init__ is a special method called a constructor. It is automatically called when you create a new instance of the class. The self parameter refers to the instance being created, allowing you to set attributes specific to that instance.
+
+# description is a method that belongs to the Car class. It can be called on any instance of Car to get a string describing that specific car. Each car instance has its own make, model, and year attributes, which are set when the object is created using the __init__ method.
+
+# class Car:
+
+#     def __init__(self, make, model, year):
+#         self.make = make
+#         self.model = model
+#         self.year = year
+
+#     def description(self):
+#         return f"{self.year} {self.make} {self.model}"
+    
+# car1 = Car("Toyota", "Camry", 2020)
+# car2 = Car("Honda", "Civic", 2019)
+
+# print(car1.description())  # Output: 2020 Toyota Camry
+# print(car2.description())  # Output: 2019 Honda Civic  
+    # description()
+
+# try:
+    # class students:
+    #     def __init__(self, name, age, department, course):
+    #         self.name = name
+    #         self.age = age
+    #         self.department = department
+    #         self.course = course
+
+    # name = input("Enter your name: ")
+    # age = int(input("Enter your age: "))
+    # department = input("Enter your department: ")
+    # course = input("Enter your course: ")
+
+    # my_student = students(name, age, department, course)
+
+    # print(f"Student Name: {my_student.name}")
+    # print(f"Student Age: {my_student.age}")
+    # print(f"Student Department: {my_student.department}")
+    # print(f"Student Course: {my_student.course}")
+
+    # def description(self):
+    #     return f"{self.name} is {self.age} years old, studying {self.course} in the {self.department} department."
+
+    # print(description(my_student))
+# except ValueError:
+#     print("Invalid input. Please enter a valid age.")
+
+# except NameError:
+#     print("Error: it is because of gabriel")
+
+# except TypeError:
+#     print("Error: Invalid input types. Please enter the correct data types.")
+    
+# except Exception as e:
+#     print(f"Unexpected error: {e}")
+
+
+# class Dog:
+#     def __init__(self, name, breed, age):
+#         self.name = name
+#         self.breed = breed
+#         self.age = age
+#     def bark(self):
+#         print(f"{self.name} says: Woof! Woof!")
+ 
+#     def birthday(self):
+#         """Add one year to the dog's age."""
+#         self.age += 1
+#         print(f"Happy birthday {self.name}! Now {self.age} years old.")
+ 
+#     def describe(self):
+#         print(f"{self.name} is a {self.age}-year-old {self.breed}.")
+ 
+ 
+# # Use the objects
+# rex = Dog("Rex", "German Shepherd", 3)
+# rex.bark()        # Rex says: Woof! Woof!
+# rex.describe()    # Rex is a 3-year-old German Shepherd.
+# rex.birthday()    # Happy birthday Rex! Now 4 years old.
+# rex.describe()    # Rex is a 4-year-old German Shepherd.
+
+
+#  In Python, the primary difference is that # creates a true comment that the interpreter completely ignores, whereas triple quotes (""" or ''') actually create string literals. \
+# (""" or ''') are called pseudo-comments because they can be used to write multi-line comments, but they are still processed by the interpreter as string objects. If not assigned to a variable or used in a docstring, these string literals will be created and then immediately discarded, which is inefficient. Therefore, it is recommended to use # for comments and reserve triple quotes for docstrings or multi-line strings that are actually needed in the code.
+
+
+class MitaSchool:
+    def __init__(self, name, initial_balance):
+        self.name = name
+        self.balance = initial_balance
+        self.history = []
+
+
+    def deposit(self, amount):
+        if amount <= 0:
+            print("Deposit amount must be positive.")
+            return
+        self.balance += amount
+        self.history.append(("deposit", amount))
+        print(f"{self.name} has a balance of {self.balance}.")
+
+    def withdraw(self, amount):
+        if amount <= 0:
+            print("Withdrawal amount must be positive.")
+            return
+        if amount > self.balance:
+            print("Insufficient balance.")
+            return
+        self.balance -= amount
+        self.history.append(("withdraw", amount))
+        print(f"{self.name} has a balance of {self.balance}.")
+
+    def show_history(self):
+        return self.history
+     
+    def show_balance(self):
+        return self.balance
+    
+    def print_statement(self):
+        print(f"\n  Account: {self.name}")
+        print(f"  " + "-" * 30)
+        for entry in self.history:
+            print(f"  {entry}")
+        print(f"  " + "-" * 30)
+        print(f"  Balance: NGN {self.balance:,.2f}\n")
+
+
+python = MitaSchool("David", 10000)
+python.deposit(5000)
+python.withdraw(2000)
+print(python.show_balance())  # Output: 13000
+print(python.show_history())  # Output: [('deposit', 5000), ('withdraw', 2000)]
+print(python.print_statement())
+
+
+
+# Build a Library management system with two classes: Book and Library. Book holds title, author, year, and genre. Library holds a list of Books and has methods to add, remove, search by author or title, and list all books. Persist the library to a JSON file.
+# create a library.json for the data to be stored in. Use try/except to handle file errors and invalid input gracefully.
