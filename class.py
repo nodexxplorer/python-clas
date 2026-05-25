@@ -1458,55 +1458,231 @@ contacts = {}
 # (""" or ''') are called pseudo-comments because they can be used to write multi-line comments, but they are still processed by the interpreter as string objects. If not assigned to a variable or used in a docstring, these string literals will be created and then immediately discarded, which is inefficient. Therefore, it is recommended to use # for comments and reserve triple quotes for docstrings or multi-line strings that are actually needed in the code.
 
 
-class MitaSchool:
-    def __init__(self, name, initial_balance):
-        self.name = name
-        self.balance = initial_balance
-        self.history = []
+# class MitaSchool:
+#     def __init__(self, name, initial_balance):
+#         self.name = name
+#         self.balance = initial_balance
+#         self.history = []
 
 
-    def deposit(self, amount):
-        if amount <= 0:
-            print("Deposit amount must be positive.")
-            return
-        self.balance += amount
-        self.history.append(("deposit", amount))
-        print(f"{self.name} has a balance of {self.balance}.")
+#     def deposit(self, amount):
+#         if amount <= 0:
+#             print("Deposit amount must be positive.")
+#             return
+#         self.balance += amount
+#         self.history.append(("deposit", amount))
+#         print(f"{self.name} has a balance of {self.balance}.")
 
-    def withdraw(self, amount):
-        if amount <= 0:
-            print("Withdrawal amount must be positive.")
-            return
-        if amount > self.balance:
-            print("Insufficient balance.")
-            return
-        self.balance -= amount
-        self.history.append(("withdraw", amount))
-        print(f"{self.name} has a balance of {self.balance}.")
+#     def withdraw(self, amount):
+#         if amount <= 0:
+#             print("Withdrawal amount must be positive.")
+#             return
+#         if amount > self.balance:
+#             print("Insufficient balance.")
+#             return
+#         self.balance -= amount
+#         self.history.append(("withdraw", amount))
+#         print(f"{self.name} has a balance of {self.balance}.")
 
-    def show_history(self):
-        return self.history
+#     def show_history(self):
+#         return self.history
      
-    def show_balance(self):
-        return self.balance
+#     def show_balance(self):
+#         return self.balance
     
-    def print_statement(self):
-        print(f"\n  Account: {self.name}")
-        print(f"  " + "-" * 30)
-        for entry in self.history:
-            print(f"  {entry}")
-        print(f"  " + "-" * 30)
-        print(f"  Balance: NGN {self.balance:,.2f}\n")
+#     def print_statement(self):
+#         print(f"\n  Account: {self.name}")
+#         print(f"  " + "-" * 30)
+#         for entry in self.history:
+#             print(f"  {entry}")
+#         print(f"  " + "-" * 30)
+#         print(f"  Balance: NGN {self.balance:,.2f}\n")
 
 
-python = MitaSchool("David", 10000)
-python.deposit(5000)
-python.withdraw(2000)
-print(python.show_balance())  # Output: 13000
-print(python.show_history())  # Output: [('deposit', 5000), ('withdraw', 2000)]
-print(python.print_statement())
+# python = MitaSchool("David", 10000)
+# python.deposit(5000)
+# python.withdraw(2000)
+# print(python.show_balance())  # Output: 13000
+# print(python.show_history())  # Output: [('deposit', 5000), ('withdraw', 2000)]
+# print(python.print_statement())
 
 
 
 # Build a Library management system with two classes: Book and Library. Book holds title, author, year, and genre. Library holds a list of Books and has methods to add, remove, search by author or title, and list all books. Persist the library to a JSON file.
 # create a library.json for the data to be stored in. Use try/except to handle file errors and invalid input gracefully.
+
+# Inheritance — Building on Existing Classes - inheritance is a core object-oriented programming (OOP) concept that allows you to create a child class (also known as a subclass or derived class) that inherits all the methods and properties from a parent class (also called a base or superclass). This promotes code reusability and allows you to create more specific classes based on a general template.
+
+# class parent:
+#     def __init__(self, name):
+#         self.name = name
+
+#     def greet(self):
+#         print(f"Hello, I am {self.name}.")
+
+# class child(parent):
+#     def play(self):
+#         print(f"{self.name} is playing.")
+
+
+# # Create instances
+# p1 = parent("David")
+# p1.greet() 
+
+# c1 = child("Fortune")
+# c1.greet()  
+# c1.play()  
+
+        
+
+# class Animal:
+#     def __init__(self, name, species):
+#         self.name    = name
+#         self.species = species
+#         # self.age     = age
+ 
+#     def breathe(self):
+#         print(f"{self.name} breathes air.")
+ 
+
+#     def eat(self, food):
+#         print(f"{self.name} eats {food}.")
+ 
+#     def __str__(self):
+#         return f"{self.name} is a  {self.species}"
+ 
+# # p1 = Animal("racoon", "Mammal")
+# # p1.breathe()
+# # p1.eat("berries")
+# # print(p1)  
+ 
+# class Dog(Animal):
+#     """Child class — inherits everything from Animal, adds dog-specific things."""
+#     def __init__(self, name, breed):
+#         super().__init__(name, "Dog")   # call parent __init__
+#         self.breed = breed              # add Dog-specific attribute
+ 
+#     def bark(self):
+#         print(f"{self.name} barks!")
+ 
+#     def fetch(self, item):
+#         print(f"{self.name} fetches the {item}!")
+
+# # c1 = Dog("Rex", "Husky")
+# # c1.bark()
+# # c1.fetch("ball")
+ 
+ 
+# class Cat(Animal):
+#     def __init__(self, name, indoor=True):
+#         super().__init__(name, "Cat")
+#         self.indoor = indoor
+ 
+#     def meow(self):
+#         print(f"{self.name} says meow.")
+ 
+#     def purr(self):
+#         print(f"{self.name} purrs contentedly.")
+ 
+# # Using inherited and new methods
+# dog = Dog("Rex", "Husky")
+# cat = Cat("Whiskers")
+ 
+# dog.breathe()          # inherited from Animal
+# dog.eat("chicken")     # inherited from Animal
+# dog.bark()             # Dog-specific method
+# dog.fetch("ball")      # Dog-specific method
+ 
+# cat.breathe()          # inherited from Animal
+# cat.meow()             # Cat-specific method
+ 
+# print(dog)             # uses Animal.__str__: Dog named Rex
+# print(cat)             # uses Animal.__str__: Cat named Whiskers
+
+
+# super() — Calling the Parent Method
+# super() gives you access to the parent class. The most common use is calling the parent's __init__ inside the child's __init__ so you do not have to rewrite the parent's setup code.
+
+
+# class BankAccount:
+#     def __init__(self, owner, initial_balance):
+#         self.owner = owner
+#         self.balance = initial_balance
+#         self.history = []
+ 
+#     def deposit(self, amount):
+#         self.balance += amount
+#         self.history.append(("deposit", amount))
+#         print(f"{self.owner} has a balance of {self.balance}.")
+ 
+#     def withdraw(self, amount):
+#         if amount > self.balance:
+#             print("Insufficient balance.")
+#             return
+#         self.balance -= amount
+#         self.history.append(("withdraw", amount))
+#         print(f"{self.owner} has a balance of {self.balance}.")
+ 
+#     def print_statement(self):
+#         print(f"\n  Account: {self.owner}")
+#         print(f"  " + "-" * 30)
+#         for entry in self.history:
+#             print(f"  {entry}")
+#         print(f"  " + "-" * 30)
+#         print(f"  Balance: NGN {self.balance:,.2f}\n")
+# class SavingsAccount(BankAccount):
+#     def __init__(self, owner, initial_balance, interest_rate):
+#         # Call BankAccount.__init__ first to set up owner and balance
+#         super().__init__(owner, initial_balance)
+#         # Then add SavingsAccount-specific attributes
+#         self.interest_rate = interest_rate
+ 
+#     def apply_interest(self):
+#         interest = self.balance * (self.interest_rate / 100)
+#         self.deposit(interest)
+#         print(f"  Interest applied: NGN {interest:,.2f}")
+ 
+ 
+# savings = SavingsAccount("Ada", 50000, 5.0)   # 5% interest
+# savings.deposit(10000)          # inherited from BankAccount
+# savings.apply_interest()        # SavingsAccount-specific
+# savings.print_statement()       # inherited from BankAccount
+
+
+# Advanced Object-Oriented Programming (OOP): four basic pillars (Encapsulation, Abstraction, Inheritance, Polymorphism)
+
+# when to use a function vs a class
+# Use a function when you have a simple, reusable piece of code that performs a specific task and does not need to maintain state or represent an entity. Functions are ideal for operations that take inputs and return outputs without needing to store data.
+
+# Example: A calculator that adds two numbers. It doesn't care who you are or what numbers you added five minutes ago.
+
+def add_numbers(a, b):
+    return a + b
+
+
+# You use it, get the answer, and it's done.
+print(add_numbers(5, 3))  # Output: 8
+
+# Use a class when you want to model a real-world entity or concept that has attributes (data) and behaviors (methods). Classes allow you to create objects that can maintain state and interact with each other. They are ideal for representing complex data structures and encapsulating related functionality.
+
+# Example: A video game character. The character needs to remember its name, health pool, and how to take damage.
+class VideoGameCharacter:
+
+    def __init__(self, name, health):
+        self.name = name  # Remembers the name
+        self.health = health  # Remembers the health
+
+    def take_damage(self, amount):
+        self.health -= amount  # Changes the remembered health
+        print(f"{self.name} has {self.health} health left.")
+
+
+# Create a specific character
+hero = VideoGameCharacter("Arthur", 100)
+
+# The character remembers who it is and updates its health
+hero.take_damage(20)  # Output: Arthur has 80 health left.
+hero.take_damage(15)  # Output: Arthur has 65 health left.
+
+
+# read on these topics: JSON persistence, error handling, classes, inheritance, encapsulation, comprehensions, and functional tools.

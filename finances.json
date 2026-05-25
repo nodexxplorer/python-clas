@@ -1,0 +1,16 @@
+[
+  {
+    "type": "Income",
+    "description": "money for food",
+    "amount": 100000.0,
+    "category": "income",
+    "date": "2026-05-25"
+  },
+  {
+    "type": "Expense",
+    "description": "food",
+    "amount": 10000.0,
+    "category": "food",
+    "date": "2026-05-25"
+  }
+]
