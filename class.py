@@ -1685,4 +1685,5 @@ hero.take_damage(20)  # Output: Arthur has 80 health left.
 hero.take_damage(15)  # Output: Arthur has 65 health left.
 
 
+
 # read on these topics: JSON persistence, error handling, classes, inheritance, encapsulation, comprehensions, and functional tools.
