@@ -63,7 +63,8 @@
 # •	Body          (the actual data — usually JSON)
 
 
-# import requests
+from fastapi import params
+import requests
 
 # response = requests.get("https://api.github.com/users/nodexxplorer")
  
@@ -89,14 +90,12 @@
 
 # pip install requests
 
-import requests
 
 # # WITH params dict — cleaner, safer, requests handles encoding
 # url    = "https://api.openweathermap.org/data/2.5/weather"
 # params = {
 #     "q":     input("Enter city name: ").strip(),
 #     "units": "metric",
-#     "appid": "f14d1f442a0a9828f07416116a0f4f6e",
 # }
  
 # response = requests.get(url, params=params, timeout=10)
@@ -160,45 +159,132 @@ import requests
 
 
  
-def get_exchange_rates(base="USD"):
-    """Get live exchange rates for a base currency."""
-    url    = "https://open.er-api.com/v6/latest/" + base
-    r = requests.get(url, timeout=10)
-    r.raise_for_status()
-    data = r.json()
-    return data["rates"]
-rates = get_exchange_rates("USD")
+# def get_exchange_rates(base="USD"):
+#     """Get live exchange rates for a base currency."""
+#     url    = "https://open.er-api.com/v6/latest/" + base
+#     r = requests.get(url, timeout=10)
+#     r.raise_for_status()
+#     data = r.json()
+#     return data["rates"]
+# rates = get_exchange_rates("USD")
  
-currencies = ["NGN", "GHS", "KES", "ZAR", "EUR", "GBP"]
-print("Exchange Rates (1 USD = ?):")
-for currency in currencies:
-    if currency in rates:
-        print(f"  {currency}: {rates[currency]:,.2f}")
+# currencies = ["NGN", "GHS", "KES", "ZAR", "EUR", "GBP"]
+# print("Exchange Rates (1 USD = ?):")
+# for currency in currencies:
+#     if currency in rates:
+#         print(f"  {currency}: {rates[currency]:,.2f}")
 
 
+
+
+# The Request Library
+# the Requests library is a powerful tool for working with APIs in Python. It abstracts away the complexities of making HTTP requests and handling responses, allowing you to focus on the logic of your application. By understanding how to use Requests effectively, you can easily integrate third-party APIs into your projects and build applications that interact with the web.
+
+
+#  "requests is one of the most downloaded Python libraries in the world. Almost every professional Python project that talks to the internet uses it. Learning it properly will serve you for years."
+
+# Install command (show students how to run this in their terminal):
+
+# pip install requests
+
+# query parameters are added to the URL after a ? and are used to filter or customize the data you want from the API. For example, if you want to get weather data for a specific city, you might add a query parameter like ?q=London to specify that you want data for London. You can have multiple query parameters separated by & (e.g., ?q=London&units=metric).
+
+
+# import requests  # importing the pthon library for making HTTP requests
+
+# Define the base API endpoint
+# url = "https://example.com"  #url or endpoint of the API you want to interact with
+
+# # Define parameters to filter results
+# query_params = {
+#     "genre": "sci-fi", 
+#     "limit": 5,
+#     "units": "metric",
+#     "status": "active",
+#     "sort": "asc",
+#     "api_key": "your_api_key_here"
+# }
+
+# # The library joins these onto the URL automatically
+# response = requests.get(url, params=query_params)
+
+# print(response.url)
+
+
+
+
+
+
+
+# API Authentaication
+# Many APIs require you to authenticate yourself before you can access their data. This is usually done with an API key — a unique string that identifies you as a user of the API. You can often find your API key in your account settings on the API provider's website. When making requests, you typically include this API key in the headers or as a query parameter to prove that you have permission to access the data. Most APIs require it to track usage, enforce limits, and charge for premium features. The most common forms are:
+# •	API Key — a long, random string that acts like a password. You get one when you sign up.
+# •	Bearer Token — an API key passed in the Authorization header. Common in modern APIs.
+# •	OAuth — a more complex system used by Google, Facebook, etc. (not needed this month).
+
+# Three ways to send your API key — depends on what the API requires
  
+# Method 1: As a query parameter (most common for beginner APIs)
+# params = {
+#     "q":     "Lagos",
+#     "appid": "abc123yourapikey",   # key goes in the params dict
+# }
+# response = requests.get(url, params=params)
+ 
+# # Method 2: In the headers (more secure — does not appear in URL logs)
+# headers = {
+#     "X-Api-Key": "abc123yourapikey",
+# }
+# response = requests.get(url, headers=headers)
+ 
+# # Method 3: Authorization: Bearer (used by most modern APIs)
+# headers = {
+#     "Authorization": "Bearer abc123yourapikey",
+# }
+# response = requests.get(url, headers=headers)
+
+# # WITH params dict — cleaner, safer, requests handles encoding
+url    = "https://api.openweathermap.org/data/2.5/weather"
+
+params = {
+    "q":     input("Enter city name: ").strip(),
+    "units": "metric",
+}
+ 
+response = requests.get(url, params=params, timeout=10)
+ 
+# Print the full URL requests built (useful for debugging)
+print(response.status_code)
+ 
+if response.status_code == 200:
+    data   = response.json()
+    city   = data["uyo"]["name"]
+    temp   = data["main"]["temp"]
+    humid  = data["main"]["humidity"]
+    desc   = data["weather"][0]["description"]
+    wind   = data["wind"]["speed"]
+    # uv     = data["weather"][0]["uvi"]
+    print(f"City:      {city}")
+    print(f"Temp:      {temp}°C")
+    print(f"Humidity:  {humid}%")
+    print(f"Condition: {desc}")
+    print(f"Wind Speed: {wind} m/s")
+    # print(f"UV Index:  {uv}")
+
+else:
+    print(f"Error: {response.status_code}")
+
+
+# Storing API Keys Safely with .env Files
+# When working with APIs, you often need to use API keys to authenticate your requests. However, hardcoding these keys directly into your code can be a security risk, especially if you share your code publicly. To keep your API keys safe, you can use a .env file to store them securely. A .env file is a simple text file that contains key-value pairs of environment variables. You can then use a library like python-dotenv to load these variables into your application without exposing them in your codebase. This way, you can keep your API keys private and easily manage them across different environments (development, testing, production).
+
+
+# If your key ends up on GitHub — even for 5 seconds — bots scan GitHub constantly. Your key will be found and used before you even notice. Revoke it immediately and create a new one."
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Asignment: Students build a currency converter that fetches live rates from a free exchange rate API. They input an amount and two currencies (e.g., USD to EUR), and the program returns the converted amount using the latest exchange rates. This will give them practice with making API requests, handling responses, and performing calculations based on the data received. Add a local cache: save the fetched rates to a JSON file with a timestamp. If the cache is less than 1 hour old, load from the file instead of calling the API again. This teaches the full workflow: API call → save to disk → load from disk.
 
 
 
