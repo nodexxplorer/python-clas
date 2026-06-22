@@ -63,6 +63,8 @@
 # •	Body          (the actual data — usually JSON)
 
 
+from site import venv
+
 from fastapi import params
 import requests
 
@@ -258,7 +260,7 @@ print(response.status_code)
  
 if response.status_code == 200:
     data   = response.json()
-    city   = data["uyo"]["name"]
+    city   = data["name"]
     temp   = data["main"]["temp"]
     humid  = data["main"]["humidity"]
     desc   = data["weather"][0]["description"]
@@ -286,10 +288,13 @@ else:
 
 # Asignment: Students build a currency converter that fetches live rates from a free exchange rate API. They input an amount and two currencies (e.g., USD to EUR), and the program returns the converted amount using the latest exchange rates. This will give them practice with making API requests, handling responses, and performing calculations based on the data received. Add a local cache: save the fetched rates to a JSON file with a timestamp. If the cache is less than 1 hour old, load from the file instead of calling the API again. This teaches the full workflow: API call → save to disk → load from disk.
 
+# to create an environment for your project, run the following command in your terminal:
+#     python -m venv .venv  # creates a virtual environment named 'venv'
 
 
-
-
+# to activate environment:
+# source .venv/bin/activate  # on macOS/Linux
+# .\.venv\Scripts\Activate.ps1     # on Windows
 
 
 
