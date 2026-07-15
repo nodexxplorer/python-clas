@@ -435,4 +435,17 @@ import asyncio, aiohttp
 #     └── cache.json         # cached API responses
 
 
+# note: to move to a directory on terminal, use the cd command followed by the directory path. For example, to move to the my_project directory, you would type:
+# cd my_project
+# avoid spaces in directory names. If you must use spaces, enclose the path in quotes or use backslashes to escape the spaces. For example:
+# cd "my project"
 
+# to go back to the previous directory, use: 
+# cd ..
+
+# use camelCase for variable names and snake_case for function names. For example, use myVariable for a variable and my_function for a function. This is the convention in Python and helps improve code readability.
+# or snake_case for both variables and functions, which is more common in Python. For example, use my_variable for a variable and my_function for a function. This is the convention in Python and helps improve code readability.
+# to copy .env.example to .env, use the following command in terminal:
+# cp .env.example .env
+
+# async news and crypto dashboard
